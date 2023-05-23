@@ -20,7 +20,7 @@ import dotenv from 'dotenv';
 const program = new Command();
 program
     .name('streamer-ui-service')
-    .description('Web Service and Web UI that provide the user interface for streamerOS.')
+    .description('Web Service and Web UI that provides the user interface for streamerOS.')
     .version('0.0.0')
     .option('-C, --config <filepath>', 'Path configuration file', '/etc/streamerOS/ui-service.config');
 program.parse();
