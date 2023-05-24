@@ -14,8 +14,17 @@
     limitations under the License.
 */
 
+import * as os from "os";
+import * as fs from 'fs';
+import * as path from 'path';
+
 import { Command } from 'commander';
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
+
+import express from 'express';
+import expressWs from 'express-ws';
+import * as https from 'https';
+import * as jwt from "jsonwebtoken";
 
 const program = new Command();
 program
@@ -29,3 +38,51 @@ const options = program.opts();
 
 dotenv.config({ path: options.config });
 
+const hostname = os.hostname();
+const port = parseInt(process.env.PORT || '9443');
+const certDir = mandatory(process.env.CERT_DIR, 'CERT_DIR')!;
+const appleMusicStorefrontId = mandatory(process.env.APPLE_MUSIC_STOREFRONT_ID, 'APPLE_MUSIC_STOREFRONT_ID')!;
+const appleMusicPrivateKey = mandatory(process.env.APPLE_MUSIC_PRIVATE_KEY, 'APPLE_MUSIC_PRIVATE_KEY')!;
+const appleMusicTeamId = mandatory(process.env.APPLE_MUSIC_TEAM_ID, 'APPLE_MUSIC_TEAM_ID')!;
+const appleMusicKeyId = mandatory(process.env.APPLE_MUSIC_KEY_ID, 'APPLE_MUSIC_KEY_ID')!;
+const bonjourDisplayName = process.env.BONJOUR_DISPLAY_NAME || hostname;
+
+const app = express();
+const server = https.createServer(
+    {
+        key: fs.readFileSync(path.join(certDir, 'key.pem')),
+        cert: fs.readFileSync(path.join(certDir, 'cert.pem')),
+    }, app);
+const webSocketServer = expressWs(app, server);
+
+app.get('/apple-music-token', (req, res) => {
+    const jwtToken = jwt.sign({}, appleMusicPrivateKey, {
+        algorithm: "ES256",
+        expiresIn: "180d",
+        issuer: appleMusicTeamId,
+        header: {
+            alg: "ES256",
+            kid: appleMusicKeyId
+        }
+    });
+
+    res.send({
+        storefrontId: appleMusicStorefrontId,
+        token: jwtToken
+    })
+});
+
+app.use(express.static(path.join(__dirname, '../ui')));
+
+server.listen(port, hostname, () => {
+    console.log(`server is runing on ${hostname} at port ${port}`);
+});
+
+function mandatory<Type>(value: Type, parameter: String): Type {
+    if (!value) {
+        console.log(`${parameter}: not configured`);
+        process.exit(9);
+    }
+
+    return value;
+}
