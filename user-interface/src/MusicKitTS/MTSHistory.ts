@@ -14,25 +14,19 @@
     limitations under the License.
 */
 
-import { ColorModeScript } from '@chakra-ui/react';
-import * as React from 'react';
-import * as ReactDOM from "react-dom/client";
-import { Provider } from 'react-redux';
+import { convert } from "./MusicItem";
 
-import { App } from './Components/App'
+export class MTSHistory {
 
-import store from './Store/Store';
+    private _request: (path: string, absolute: boolean) => Promise<any>;
 
+    public constructor(request: (path: string, absolute: boolean) => Promise<string>) {
+        this._request = request;
+    }
 
-const container = document.getElementById("root")
-if (!container) throw new Error('Failed to find the root element');
-const root = ReactDOM.createRoot(container)
-
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ColorModeScript />
-      <App />
-    </Provider>
-  </React.StrictMode>,
-)
+    public async recentlyAdded(offset: number = 0, limit: number = 25) {
+        const items = await this
+            ._request(`recently-added?limit=${limit}&offset=${offset}&extend=tracks`, false);
+        return items.map((item: any) => convert(item));
+    }
+}

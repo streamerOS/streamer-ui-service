@@ -14,25 +14,26 @@
     limitations under the License.
 */
 
-import { ColorModeScript } from '@chakra-ui/react';
-import * as React from 'react';
-import * as ReactDOM from "react-dom/client";
-import { Provider } from 'react-redux';
+import { ReactNode, useEffect, useState } from 'react';
 
-import { App } from './Components/App'
+interface ResizableProps {
+    children: ReactNode;
+}
 
-import store from './Store/Store';
+export function Resizeable({ children }: ResizableProps) {
+    const [resized, setResized] = useState(0);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setResized(resized + 1);
+        };
 
-const container = document.getElementById("root")
-if (!container) throw new Error('Failed to find the root element');
-const root = ReactDOM.createRoot(container)
+        window.addEventListener("resize", handleResize);
 
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ColorModeScript />
-      <App />
-    </Provider>
-  </React.StrictMode>,
-)
+        /*return () => {
+            window.removeEventListener("resize", handleResize);
+        };*/
+    }, [resized]);
+
+    return <>{children}</>
+}

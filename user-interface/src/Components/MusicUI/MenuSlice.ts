@@ -14,25 +14,32 @@
     limitations under the License.
 */
 
-import { ColorModeScript } from '@chakra-ui/react';
-import * as React from 'react';
-import * as ReactDOM from "react-dom/client";
-import { Provider } from 'react-redux';
+import { createSlice } from '@reduxjs/toolkit'
 
-import { App } from './Components/App'
+export enum MenuItem {
+    RecentlyAdded = 1,
+    Playlists,
+    Artists,
+    Albums,
+    Songs,
+    ForYou,
+    Compilations,
+    RecentlyPlayed
+}
 
-import store from './Store/Store';
+export const MenuSlice = createSlice({
+    name: 'menu',
+    initialState: {
+        value: MenuItem.RecentlyAdded,
+    },
+    reducers: {
+        selectItem: (state, action) => {
+            state.value = action.payload;
+        },
+    },
+})
 
+// Action creators are generated for each case reducer function
+export const { selectItem } = MenuSlice.actions
 
-const container = document.getElementById("root")
-if (!container) throw new Error('Failed to find the root element');
-const root = ReactDOM.createRoot(container)
-
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ColorModeScript />
-      <App />
-    </Provider>
-  </React.StrictMode>,
-)
+export default MenuSlice.reducer

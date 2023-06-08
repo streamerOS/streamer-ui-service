@@ -5,9 +5,9 @@
   "main": "build/server/main.js",
   "scripts": {
     "bootstrap": "npm i && cd user-interface && npm i && cd ..",
-    "build": "npm run build:server && npm run build:ui && node copy-ui.js",
+    "build": "npm run build:server && npm run build:ui",
     "build:server": "tsc",
-    "build:ui": "cd user-interface && npm run build && cd ..",
+    "build:ui": "cd user-interface && npm run build && cd .. && node copy-ui.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Thomas Bonk <thomas@meandmymac.de>",

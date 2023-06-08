@@ -14,25 +14,11 @@
     limitations under the License.
 */
 
-import { ColorModeScript } from '@chakra-ui/react';
-import * as React from 'react';
-import * as ReactDOM from "react-dom/client";
-import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import MenuSliceReducer from '../Components/MusicUI/MenuSlice';
 
-import { App } from './Components/App'
-
-import store from './Store/Store';
-
-
-const container = document.getElementById("root")
-if (!container) throw new Error('Failed to find the root element');
-const root = ReactDOM.createRoot(container)
-
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ColorModeScript />
-      <App />
-    </Provider>
-  </React.StrictMode>,
-)
+export default configureStore({
+  reducer: {
+    menu: MenuSliceReducer
+  },
+});

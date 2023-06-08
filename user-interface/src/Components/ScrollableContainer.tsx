@@ -14,25 +14,19 @@
     limitations under the License.
 */
 
-import { ColorModeScript } from '@chakra-ui/react';
-import * as React from 'react';
-import * as ReactDOM from "react-dom/client";
-import { Provider } from 'react-redux';
+import { ReactNode } from 'react';
+import { Box, HStack, IconButton, VStack } from "@chakra-ui/react";
+import { AiFillCaretDown } from '@react-icons/all-files/ai/AiFillCaretDown';
 
-import { App } from './Components/App'
+interface ScrollableContainerProps {
+    maxHeight: number;
+    children: ReactNode;
+}
 
-import store from './Store/Store';
-
-
-const container = document.getElementById("root")
-if (!container) throw new Error('Failed to find the root element');
-const root = ReactDOM.createRoot(container)
-
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <ColorModeScript />
-      <App />
-    </Provider>
-  </React.StrictMode>,
-)
+export function ScrollableContainer({ maxHeight, children }: ScrollableContainerProps) {
+    return (
+        <Box overflowY='auto' maxHeight={maxHeight - 32}>
+            {children}
+        </Box>
+    );
+}
