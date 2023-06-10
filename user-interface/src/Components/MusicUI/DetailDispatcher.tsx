@@ -19,6 +19,8 @@ import { useSelector } from 'react-redux';
 import { MenuItem } from './MenuSlice';
 import { RecentlyAddedView } from './DetailViews/RecentlyAddedView';
 import { PlaylistsView } from './DetailViews/PlaylistsView';
+import { ArtistsView } from './DetailViews/ArtistsView';
+
 
 export function DetailDispatcher() {
     var selectedItem = useSelector((state: any) => state['menu']['value']);
@@ -33,7 +35,7 @@ export function DetailDispatcher() {
         );
     } else if (selectedItem === MenuItem.Artists) {
         return (
-            <Text color='white' fontSize='3xl' as='b'>Artists</Text>
+            <ArtistsView />
         );
     } else if (selectedItem === MenuItem.Albums) {
         return (

@@ -44,15 +44,15 @@ export class RecentlyAddedView extends React.Component {
 
     while (readNext) {
       const readItems = await MusicKitTS.instance.history.recentlyAdded(offset, 20);
+      const readItemsCount = readItems.length;
 
-      offset = readItems.length;
 
-      if (offset > 0) {
-        const itms = this.state.items.concat(readItems.filter((i: MusicItem) => i.kind !== 'playlist'));
-        offset += itms.length;
+      if (readItemsCount > 0) {
+        const itms = this.state.items.concat(readItems/*.filter((i: MusicItem) => i.kind !== 'playlist')*/);
+        offset = itms.length;
         this.setState({ items: itms });
 
-        readNext = (offset <= 75);
+        //readNext = (offset <= 75);
       } else {
         readNext = false;
       }

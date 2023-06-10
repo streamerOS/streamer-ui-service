@@ -70,39 +70,9 @@ export interface Song extends BaseMusicItem {
     playParams: PlayParams | null | undefined;
 }
 
-/*
-{
-    "id": "i.p6RlPUDgkJB",
-    "type": "library-songs",
-    "href": "/v1/me/library/songs/i.p6RlPUDgkJB",
-    "attributes": {
-        "albumName": "But Here We Are",
-        "discNumber": 1,
-        "genreNames": [
-            "Rock"
-        ],
-        "trackNumber": 1,
-        "hasLyrics": true,
-        "releaseDate": "2023-04-21",
-        "durationInMillis": 258648,
-        "name": "Rescued",
-        "artistName": "Foo Fighters",
-        "artwork": {
-            "width": 1200,
-            "height": 1200,
-            "url": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/50/41/c9/5041c992-e078-77c1-442a-ff896abd59db/196871063197.jpg/{w}x{h}bb.jpg"
-        },
-        "playParams": {
-            "id": "i.p6RlPUDgkJB",
-            "kind": "song",
-            "isLibrary": true,
-            "reporting": true,
-            "catalogId": "1682993467",
-            "reportingId": "1682993467"
-        }
-    }
+export interface Artist extends BaseMusicItem {
+    name: string;
 }
-*/
 
 export type MusicItem = Playlist | Album | Song;
 
@@ -156,6 +126,17 @@ export function toSong(item: any): MusicItem {
     };
 }
 
+export function toArtist(artist: any): Artist {
+    const { id, href, attributes } = artist;
+    const { name } = attributes;
+
+    return {
+        id: id,
+        href: href,
+        name: name
+    };
+}
+
 export function convert(item: any): MusicItem | undefined {
     if (item['type'] === 'library-albums') {
         return toAlbum(item)
@@ -167,8 +148,6 @@ export function convert(item: any): MusicItem | undefined {
 
     return undefined;
 }
-
-
 
 export function artworkUrl(item: Playlist | Album | Song, size: number): string {
     if (!item.artwork) {

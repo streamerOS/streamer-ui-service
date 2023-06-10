@@ -54,9 +54,9 @@ export class PlaylistsView extends React.Component {
 
             if (readItemsCount > 0) {
                 const itms = this.state.items.concat(readItems);
-                offset += itms.length;
+                offset = itms.length;
                 this.setState({ items: itms });
-                await delay(500);
+                await delay(100);
             } else {
                 readNext = false;
             }

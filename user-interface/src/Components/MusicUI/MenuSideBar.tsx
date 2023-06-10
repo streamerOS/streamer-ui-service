@@ -14,9 +14,8 @@
     limitations under the License.
 */
 
-import { ReactNode } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Box, List, ListIcon, ListItem } from '@chakra-ui/react';
+import { List, ListIcon, ListItem } from '@chakra-ui/react';
 
 import { MenuItem, selectItem } from './MenuSlice';
 
@@ -27,29 +26,7 @@ import { GiMicrophone } from '@react-icons/all-files/gi/GiMicrophone';
 import { IoIosAlbums } from '@react-icons/all-files/io/IoIosAlbums';
 import { MdRecentActors } from '@react-icons/all-files/md/MdRecentActors';
 import { RiPlayListFill } from '@react-icons/all-files/ri/RiPlayListFill';
-
-interface RoundedBorderProps {
-    selected: boolean;
-    children: ReactNode;
-}
-
-function RoundedBorder({ selected, children }: RoundedBorderProps) {
-    if (selected) {
-        return (
-            <Box
-                border="1px solid"
-                borderColor="gray.200"
-                borderRadius="md"
-                p={1}
-            >
-                {children}
-            </Box>
-        );
-    }
-
-    return <>{children}</>;
-}
-
+import { RoundedBorder } from '../RoundedBorder';
 
 export function MenuSideBar() {
     var dispatch = useDispatch();
@@ -58,43 +35,45 @@ export function MenuSideBar() {
     return (
         <List spacing={5}>
             <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.RecentlyAdded))}>
-                <RoundedBorder selected={selectedItem === MenuItem.RecentlyAdded}>
+                <RoundedBorder padding={1} selected={selectedItem === MenuItem.RecentlyAdded}>
                     <ListIcon as={FaRegClock} color='red.500' />
                     Recently Added
                 </RoundedBorder>
             </ListItem>
             <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Playlists))}>
-                <RoundedBorder selected={selectedItem === MenuItem.Playlists}>
+                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Playlists}>
                     <ListIcon as={RiPlayListFill} color='red.500' />
                     Playlists
                 </RoundedBorder>
             </ListItem>
             <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Artists))}>
-                <RoundedBorder selected={selectedItem === MenuItem.Artists}>
+                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Artists}>
                     <ListIcon as={GiMicrophone} color='red.500' />
                     Arists
                 </RoundedBorder>
             </ListItem>
+            {/*
             <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Albums))}>
-                <RoundedBorder selected={selectedItem === MenuItem.Albums}>
+                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Albums}>
                     <ListIcon as={IoIosAlbums} color='red.500' />
                     Albums
                 </RoundedBorder>
             </ListItem>
             <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Songs))}>
-                <RoundedBorder selected={selectedItem === MenuItem.Songs}>
+                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Songs}>
                     <ListIcon as={BsMusicNote} color='red.500' />
                     Songs
                 </RoundedBorder>
             </ListItem>
             <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Compilations))}>
-                <RoundedBorder selected={selectedItem === MenuItem.Compilations}>
+                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Compilations}>
                     <ListIcon as={FaUsers} color='red.500' />
                     Compilations
                 </RoundedBorder>
             </ListItem>
+            */}
             <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.RecentlyPlayed))}>
-                <RoundedBorder selected={selectedItem === MenuItem.RecentlyPlayed}>
+                <RoundedBorder padding={1} selected={selectedItem === MenuItem.RecentlyPlayed}>
                     <ListIcon as={MdRecentActors} color='red.500' />
                     Recently Played
                 </RoundedBorder>

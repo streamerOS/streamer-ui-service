@@ -15,7 +15,8 @@
 */
 
 import * as React from 'react';
-import { ChakraProvider, Grid, GridItem, Text, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider, Grid, GridItem, HStack, IconButton, Spacer, extendTheme } from '@chakra-ui/react';
+import { AiOutlineReload } from '@react-icons/all-files/ai/AiOutlineReload';
 import { PlaybackControl } from './PlaybackControl';
 import { MenuSideBar } from './MenuSideBar';
 import { DetailDispatcher } from './DetailDispatcher';
@@ -44,7 +45,15 @@ export class MusicUI extends React.Component {
 
                 >
                     <GridItem pl='2' area={'header'}>
-                        <PlaybackControl />
+                        <HStack justifyContent="center" alignItems="center">
+                            <IconButton
+                                icon={<AiOutlineReload />}
+                                aria-label={'reload'}
+                                onClick={() => window.location.reload()} />
+                            <Spacer />
+                            <PlaybackControl />
+                            <Spacer />
+                        </HStack>
                     </GridItem>
                     <GridItem pl='2' area={'nav'}>
                         <MenuSideBar />

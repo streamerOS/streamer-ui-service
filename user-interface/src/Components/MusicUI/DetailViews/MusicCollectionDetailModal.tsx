@@ -38,6 +38,7 @@ import { AiFillPlayCircle } from '@react-icons/all-files/ai/AiFillPlayCircle';
 import { BiShuffle } from '@react-icons/all-files/bi/BiShuffle';
 import { useEffect } from 'react';
 import { MusicKitTS } from '../../../MusicKitTS/MusicKitTS';
+import { ScrollableContainer } from '../../ScrollableContainer';
 
 const cellStyle: React.CSSProperties = {
     whiteSpace: "pre-wrap",
@@ -113,7 +114,7 @@ export function MusicCollectionDetailModal({ onClose, isOpen, item }: MusicColle
                                 </VStack>
                             </HStack>
 
-                            <Box overflowY='auto' overflowX='auto' maxHeight={400} height={400} maxWidth={500}>
+                            <ScrollableContainer maxHeight={400}>
                                 <TableContainer width={500}>
                                     <Table size='sm'>
                                         <Tbody>
@@ -142,7 +143,8 @@ export function MusicCollectionDetailModal({ onClose, isOpen, item }: MusicColle
                                         </Tbody>
                                     </Table>
                                 </TableContainer>
-                            </Box>
+                            </ScrollableContainer>
+
                         </VStack>
                     </ModalBody>
                 </ModalContent>

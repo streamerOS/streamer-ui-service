@@ -14,22 +14,28 @@
     limitations under the License.
 */
 
-import { ReactNode, useEffect, useState } from 'react';
+import { Box } from "@chakra-ui/react";
+import { ReactNode } from "react";
 
-interface ResizableProps {
+interface RoundedBorderProps {
+    padding: number;
+    selected: boolean;
     children: ReactNode;
 }
 
-export function Resizeable({ children }: ResizableProps) {
-    const [resized, setResized] = useState(0);
+export function RoundedBorder({ padding, selected, children }: RoundedBorderProps) {
+    if (selected) {
+        return (
+            <Box
+                border="1px solid"
+                borderColor="gray.200"
+                borderRadius="md"
+                p={padding}
+            >
+                {children}
+            </Box>
+        );
+    }
 
-    useEffect(() => {
-        const handleResize = () => {
-            setResized(resized + 1);
-        };
-
-        window.addEventListener("resize", handleResize);
-    }, [resized]);
-
-    return <>{children}</>
+    return <>{children}</>;
 }

@@ -20,7 +20,9 @@ import {
   Box,
   Grid,
   Text,
-  extendTheme
+  extendTheme,
+  Button,
+  VStack
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { MusicKitTS } from '../MusicKitTS/MusicKitTS';
@@ -88,7 +90,16 @@ export class App extends React.Component {
         <Box textAlign="center" fontSize="xl">
           <Grid minH="100vh" p={3}>
             <ColorModeSwitcher justifySelf="flex-end" />
-            <Text>Initializing...</Text>
+            <VStack justify={'center'} align={'center'}>
+              <Text>Initializing...</Text>
+              <Button
+                colorScheme='blue'
+                width='100px'
+                onClick={() => window.location.reload()}
+              >
+                Reload
+              </Button>
+            </VStack>
           </Grid>
         </Box>
       </ChakraProvider>

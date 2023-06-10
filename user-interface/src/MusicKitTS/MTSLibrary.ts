@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-import { Album, Playlist, convert, toSong } from "./MusicItem";
+import { Album, Playlist, convert, toArtist, toSong } from "./MusicItem";
 
 export class MTSLibrary {
 
@@ -28,6 +28,14 @@ export class MTSLibrary {
         const items = await this
             ._request(`playlists?limit=${limit}&offset=${offset}`, false);
         return items.map((item: any) => convert(item));
+    }
+
+    public async artists(offset: number = 0, limit: number = 100) {
+        const items = await this
+            ._request(`artists?limit=${limit}&offset=${offset}`, false);
+        const artists = items.map((artist: any) => toArtist(artist));
+
+        return artists;
     }
 
     public async readTracks(collection: Playlist | Album) {
