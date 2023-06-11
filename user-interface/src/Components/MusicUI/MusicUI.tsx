@@ -41,8 +41,7 @@ export class MusicUI extends React.Component {
                     gridTemplateColumns={`${Dimensions.sideBarWidth}px 1fr`}
                     h='100vh'
                     gap='1'
-                    color='blackAlpha.700'
-
+                    color='blackAlpha.900'
                 >
                     <GridItem pl='2' area={'header'}>
                         <HStack justifyContent="center" alignItems="center">
