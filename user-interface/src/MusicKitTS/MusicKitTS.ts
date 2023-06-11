@@ -16,7 +16,7 @@
 
 import { MTSHistory } from './MTSHistory';
 import { MTSLibrary } from './MTSLibrary';
-import { PlayParams, artworkUrl } from './MusicItem';
+import { Artist, PlayParams, artworkUrl } from './MusicItem';
 
 declare global {
     interface Window { MusicKit: any; }

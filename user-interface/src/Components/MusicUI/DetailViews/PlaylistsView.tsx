@@ -15,20 +15,10 @@
 */
 
 import * as React from 'react';
-import { MusicItem, Playlist } from '../../../MusicKitTS/MusicItem';
+import { Playlist } from '../../../MusicKitTS/MusicItem';
 import { MusicKitTS } from '../../../MusicKitTS/MusicKitTS';
 import { Dimensions } from '../../Dimensions';
-import { Resizeable } from '../../Resizeable';
-import { ScrollableContainer } from '../../ScrollableContainer';
-import { Grid, GridItem } from '@chakra-ui/react';
-import { MusicCollectionTile } from '../MusicCollectionTile';
-import { MusicCollectionDetailModal } from './MusicCollectionDetailModal';
-
-function delay(milliseconds: number): Promise<void> {
-    return new Promise((resolve) => {
-        setTimeout(resolve, milliseconds);
-    });
-}
+import { MusicItemCollectionView } from './MusicItemCollectionView';
 
 type PlaylistsViewState = {
     items: (Playlist)[];
@@ -56,7 +46,6 @@ export class PlaylistsView extends React.Component {
                 const itms = this.state.items.concat(readItems);
                 offset = itms.length;
                 this.setState({ items: itms });
-                await delay(100);
             } else {
                 readNext = false;
             }
@@ -64,36 +53,10 @@ export class PlaylistsView extends React.Component {
     }
 
     render(): React.ReactNode {
-        const columns = Math.round((Dimensions.width - Dimensions.sideBarWidth) / 180 - 1);
-
-        console.log(`Columns in RecentlyAddedView: ${columns}`);
-
-        // TODO: the maxheight shall be calculated somehow based on the available space
         return (
-            <Resizeable>
-                <ScrollableContainer maxHeight={Dimensions.height - Dimensions.playbackControlHeight - 5}>
-                    <Grid templateColumns={`repeat(${columns}, 1fr)`} gap={6}>
-                        {
-                            this.state.items.map((item) => {
-                                return (
-                                    <GridItem onClick={() => this.setState({ openModal: true, selectedItem: item })}>
-                                        <MusicCollectionTile item={item} size={180} />
-                                    </GridItem>
-                                );
-                            })
-                        };
-                    </Grid>
-                </ScrollableContainer >
-
-                {
-                    this.state.selectedItem
-                        ? <MusicCollectionDetailModal
-                            item={this.state.selectedItem}
-                            onClose={() => this.setState({ openModal: false, selectedItem: null })}
-                            isOpen={this.state.openModal} />
-                        : <></>
-                }
-            </Resizeable>
+            <MusicItemCollectionView
+                items={this.state.items}
+                maxHeight={Dimensions.height - Dimensions.playbackControlHeight - 5} />
         );
     }
 }

@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-import { Album, Playlist, convert, toArtist, toSong } from "./MusicItem";
+import { Album, MusicItem, Playlist, convert, toArtist, toSong } from "./MusicItem";
 
 export class MTSLibrary {
 
@@ -38,7 +38,7 @@ export class MTSLibrary {
         return artists;
     }
 
-    public async readTracks(collection: Playlist | Album) {
+    public async readTracks(collection: MusicItem) {
         // TODO: error handling & logic
         let details = await this._request(`${collection.href}/tracks`, true);
 

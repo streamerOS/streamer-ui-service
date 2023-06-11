@@ -33,7 +33,7 @@ import {
     Tr,
     VStack
 } from '@chakra-ui/react';
-import { Album, Playlist, Song, artworkUrl, formatMillisecondsToMinutesAndSeconds } from '../../../MusicKitTS/MusicItem';
+import { MusicItem, Song, artworkUrl, formatMillisecondsToMinutesAndSeconds } from '../../../MusicKitTS/MusicItem';
 import { AiFillPlayCircle } from '@react-icons/all-files/ai/AiFillPlayCircle';
 import { BiShuffle } from '@react-icons/all-files/bi/BiShuffle';
 import { useEffect } from 'react';
@@ -50,7 +50,8 @@ type OnCloseCallback = () => void;
 interface MusicCollectionDetailModalProps {
     onClose: OnCloseCallback;
     isOpen: boolean;
-    item: Playlist | Album | null;
+    //item: Playlist | Album | null;
+    item: MusicItem | null;
 }
 
 export function MusicCollectionDetailModal({ onClose, isOpen, item }: MusicCollectionDetailModalProps) {

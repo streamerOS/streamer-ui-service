@@ -88,8 +88,16 @@ export class ScrollableContainer extends React.Component<ScrollableContainerProp
     render(): React.ReactNode {
         return (
             <HStack>
+                <Box
+                    ref={this.scrollBoxRef}
+                    overflowY='auto'
+                    overflowX='auto'
+                    maxHeight={this.props.maxHeight - 4}
+                >
+                    {this.props.children}
+                </Box >
                 {
-                    this.getMaxScrollPosition() > this.props.maxHeight
+                    this.getMaxScrollPosition() > (this.props.maxHeight / 2)
                         ? (<VStack>
                             <IconButton
                                 icon={<GrLinkTop />}
@@ -114,14 +122,6 @@ export class ScrollableContainer extends React.Component<ScrollableContainerProp
                         </VStack>)
                         : (<></>)
                 }
-                <Box
-                    ref={this.scrollBoxRef}
-                    overflowY='auto'
-                    overflowX='auto'
-                    maxHeight={this.props.maxHeight - 4}
-                >
-                    {this.props.children}
-                </Box >
             </HStack>
         );
     }

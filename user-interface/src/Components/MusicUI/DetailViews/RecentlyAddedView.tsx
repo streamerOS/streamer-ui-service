@@ -15,14 +15,10 @@
 */
 
 import * as React from 'react';
-import { Grid, GridItem } from '@chakra-ui/react';
-import { Playlist, Album, MusicItem } from '../../../MusicKitTS/MusicItem';
+import { Playlist, Album } from '../../../MusicKitTS/MusicItem';
 import { MusicKitTS } from '../../../MusicKitTS/MusicKitTS';
-import { ScrollableContainer } from '../../ScrollableContainer';
 import { Dimensions } from '../../Dimensions';
-import { MusicCollectionTile } from '../MusicCollectionTile';
-import { MusicCollectionDetailModal } from './MusicCollectionDetailModal';
-import { Resizeable } from '../../Resizeable';
+import { MusicItemCollectionView } from './MusicItemCollectionView';
 
 type RecentlyAddedViewState = {
   items: (Playlist | Album)[];
@@ -60,36 +56,10 @@ export class RecentlyAddedView extends React.Component {
   }
 
   render(): React.ReactNode {
-    const columns = Math.round((Dimensions.width - Dimensions.sideBarWidth) / 180 - 1);
-
-    console.log(`Columns in RecentlyAddedView: ${columns}`);
-
-    // TODO: the maxheight shall be calculated somehow based on the available space
     return (
-      <Resizeable>
-        <ScrollableContainer maxHeight={Dimensions.height - Dimensions.playbackControlHeight - 5}>
-          <Grid templateColumns={`repeat(${columns}, 1fr)`} gap={6}>
-            {
-              this.state.items.map((item) => {
-                return (
-                  <GridItem onClick={() => this.setState({ openModal: true, selectedItem: item })}>
-                    <MusicCollectionTile item={item} size={180} />
-                  </GridItem>
-                );
-              })
-            };
-          </Grid>
-        </ScrollableContainer >
-
-        {
-          this.state.selectedItem
-            ? <MusicCollectionDetailModal
-              item={this.state.selectedItem}
-              onClose={() => this.setState({ openModal: false, selectedItem: null })}
-              isOpen={this.state.openModal} />
-            : <></>
-        }
-      </Resizeable>
+      <MusicItemCollectionView
+        items={this.state.items}
+        maxHeight={Dimensions.height - Dimensions.playbackControlHeight - 5} />
     );
   }
 }

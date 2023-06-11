@@ -50,6 +50,8 @@ export class ArtistsView extends React.Component {
                 readNext = false;
             }
         }
+
+        MusicKitTS.instance.readArtistArtwork(this.state.artists[0]);
     }
 
     render(): React.ReactNode {
