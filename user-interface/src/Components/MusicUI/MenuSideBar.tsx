@@ -34,23 +34,35 @@ export function MenuSideBar() {
 
     return (
         <List spacing={5}>
-            <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.RecentlyAdded))}>
-                <RoundedBorder padding={1} selected={selectedItem === MenuItem.RecentlyAdded}>
-                    <ListIcon as={FaRegClock} color='red.500' />
-                    Recently Added
-                </RoundedBorder>
+            <ListItem
+                color='white'
+                bg={selectedItem === MenuItem.RecentlyAdded ? 'red.900' : 'transparent'}
+                borderRadius='md'
+                p={2}
+                onClick={() => dispatch(selectItem(MenuItem.RecentlyAdded))}
+            >
+                <ListIcon as={FaRegClock} color='red.500' />
+                Recently Added
             </ListItem>
-            <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Playlists))}>
-                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Playlists}>
-                    <ListIcon as={RiPlayListFill} color='red.500' />
-                    Playlists
-                </RoundedBorder>
+            <ListItem
+                color='white'
+                bg={selectedItem === MenuItem.Playlists ? 'red.900' : 'transparent'}
+                borderRadius='md'
+                p={2}
+                onClick={() => dispatch(selectItem(MenuItem.Playlists))}
+            >
+                <ListIcon as={RiPlayListFill} color='red.500' />
+                Playlists
             </ListItem>
-            <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Artists))}>
-                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Artists}>
-                    <ListIcon as={GiMicrophone} color='red.500' />
-                    Arists
-                </RoundedBorder>
+            <ListItem
+                color='white'
+                bg={selectedItem === MenuItem.Artists ? 'red.900' : 'transparent'}
+                borderRadius='md'
+                p={2}
+                onClick={() => dispatch(selectItem(MenuItem.Artists))}
+            >
+                <ListIcon as={GiMicrophone} color='red.500' />
+                Arists
             </ListItem>
             {/*
             <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Albums))}>
@@ -72,11 +84,15 @@ export function MenuSideBar() {
                 </RoundedBorder>
             </ListItem>
             */}
-            <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.RecentlyPlayed))}>
-                <RoundedBorder padding={1} selected={selectedItem === MenuItem.RecentlyPlayed}>
-                    <ListIcon as={MdRecentActors} color='red.500' />
-                    Recently Played
-                </RoundedBorder>
+            <ListItem
+                color='white'
+                bg={selectedItem === MenuItem.RecentlyPlayed ? 'red.900' : 'transparent'}
+                borderRadius='md'
+                p={2}
+                onClick={() => dispatch(selectItem(MenuItem.RecentlyPlayed))}
+            >
+                <ListIcon as={MdRecentActors} color='red.500' />
+                Recently Played
             </ListItem>
         </List>
     );
