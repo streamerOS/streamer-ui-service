@@ -44,11 +44,11 @@ export class RecentlyAddedView extends React.Component {
 
 
       if (readItemsCount > 0) {
-        const itms = this.state.items.concat(readItems/*.filter((i: MusicItem) => i.kind !== 'playlist')*/);
+        const itms = this.state.items.concat(readItems);
         offset = itms.length;
         this.setState({ items: itms });
 
-        //readNext = (offset <= 75);
+        //readNext = !(readItems.length < offset);
       } else {
         readNext = false;
       }

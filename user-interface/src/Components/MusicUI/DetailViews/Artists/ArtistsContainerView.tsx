@@ -48,7 +48,7 @@ export class ArtistsContainerView extends React.Component {
 
                 if (readItemsCount > 0) {
                     items = items.concat(readItems);
-                    offset += items.length;
+                    offset = items.length;
                     readNext = !(readItemsCount < limit);
                 } else {
                     readNext = false;

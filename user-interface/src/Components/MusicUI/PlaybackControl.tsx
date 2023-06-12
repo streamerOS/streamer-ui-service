@@ -182,7 +182,13 @@ export class PlaybackControl extends React.Component {
                                     max={this.state.duration}
                                     value={this.state.currentPosition}
                                     step={1}
-                                    onChangeEnd={this.setPlayPosition}
+                                    onChangeEnd={(pos) => {
+                                        this.setPlayPosition(pos)
+                                            .catch((err) => {
+                                                // TODO Error Handling
+                                                console.log(err);
+                                            })
+                                    }}
                                 >
                                     <SliderTrack>
                                         <SliderFilledTrack />

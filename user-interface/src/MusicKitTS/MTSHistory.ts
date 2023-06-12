@@ -26,7 +26,15 @@ export class MTSHistory {
 
     public async recentlyAdded(offset: number = 0, limit: number = 25) {
         const items = await this
-            ._request(`recently-added?limit=${limit}&offset=${offset}&extend=tracks`, false);
+            ._request(`recently-added?limit=${limit}&offset=${offset}`, false);
+        return items.map((item: any) => convert(item));
+    }
+
+    public async recentlyPlayed(offset: number = 0, limit: number = 10) {
+        const items = await this
+            //._request(`/v1/me/recent/played?limit=${limit}&offset=${offset}&extend=tracks`, true);
+            ._request(`v1/me/recent/played?limit=${limit}&offset=${offset}`, true);
+
         return items.map((item: any) => convert(item));
     }
 }

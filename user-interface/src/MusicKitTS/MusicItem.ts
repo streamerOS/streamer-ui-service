@@ -138,11 +138,11 @@ export function toArtist(artist: any): Artist {
 }
 
 export function convert(item: any): MusicItem | undefined {
-    if (item['type'] === 'library-albums') {
+    if (item['type'] === 'library-albums' || item['type'] === 'albums') {
         return toAlbum(item)
     } else if (item['type'] === 'library-playlists' || item['type'] === 'playlist') {
         return toPlaylist(item)
-    } else if (item['type'] === 'library-songs') {
+    } else if (item['type'] === 'library-songs' || item['type'] === 'songs') {
         return toSong(item);
     }
 

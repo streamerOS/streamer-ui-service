@@ -19,8 +19,8 @@ import { useSelector } from 'react-redux';
 import { MenuItem } from './MenuSlice';
 import { RecentlyAddedView } from './DetailViews/RecentlyAddedView';
 import { PlaylistsView } from './DetailViews/PlaylistsView';
-import { ArtistsView } from './DetailViews/ArtistsView';
 import { ArtistsContainerView } from './DetailViews/Artists/ArtistsContainerView';
+import { RecentlyPlayedView } from './DetailViews/RecentlyPlayedView';
 
 
 export function DetailDispatcher() {
@@ -56,7 +56,7 @@ export function DetailDispatcher() {
         );
     } else {
         return (
-            <Text color='white' fontSize='3xl' as='b'>Recently Played</Text>
+            <RecentlyPlayedView />
         );
     }
 }
