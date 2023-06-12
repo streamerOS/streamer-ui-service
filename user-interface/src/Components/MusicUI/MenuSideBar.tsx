@@ -37,6 +37,7 @@ export function MenuSideBar() {
             <ListItem
                 color='white'
                 bg={selectedItem === MenuItem.RecentlyAdded ? 'red.900' : 'transparent'}
+                cursor='pointer'
                 borderRadius='md'
                 p={2}
                 onClick={() => dispatch(selectItem(MenuItem.RecentlyAdded))}
@@ -47,6 +48,7 @@ export function MenuSideBar() {
             <ListItem
                 color='white'
                 bg={selectedItem === MenuItem.Playlists ? 'red.900' : 'transparent'}
+                cursor='pointer'
                 borderRadius='md'
                 p={2}
                 onClick={() => dispatch(selectItem(MenuItem.Playlists))}
@@ -57,6 +59,7 @@ export function MenuSideBar() {
             <ListItem
                 color='white'
                 bg={selectedItem === MenuItem.Artists ? 'red.900' : 'transparent'}
+                cursor='pointer'
                 borderRadius='md'
                 p={2}
                 onClick={() => dispatch(selectItem(MenuItem.Artists))}
@@ -87,6 +90,7 @@ export function MenuSideBar() {
             <ListItem
                 color='white'
                 bg={selectedItem === MenuItem.RecentlyPlayed ? 'red.900' : 'transparent'}
+                cursor='pointer'
                 borderRadius='md'
                 p={2}
                 onClick={() => dispatch(selectItem(MenuItem.RecentlyPlayed))}

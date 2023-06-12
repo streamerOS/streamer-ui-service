@@ -29,6 +29,10 @@ export class Dimensions {
         return 200;
     }
 
+    static get artistsListWidth(): number {
+        return 260;
+    }
+
     static get playbackControlHeight(): number {
         return 80;
     }

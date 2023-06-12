@@ -20,6 +20,7 @@ import { MenuItem } from './MenuSlice';
 import { RecentlyAddedView } from './DetailViews/RecentlyAddedView';
 import { PlaylistsView } from './DetailViews/PlaylistsView';
 import { ArtistsView } from './DetailViews/ArtistsView';
+import { ArtistsContainerView } from './DetailViews/Artists/ArtistsContainerView';
 
 
 export function DetailDispatcher() {
@@ -35,7 +36,7 @@ export function DetailDispatcher() {
         );
     } else if (selectedItem === MenuItem.Artists) {
         return (
-            <ArtistsView />
+            <ArtistsContainerView />
         );
     } else if (selectedItem === MenuItem.Albums) {
         return (

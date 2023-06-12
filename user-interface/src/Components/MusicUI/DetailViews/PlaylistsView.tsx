@@ -56,7 +56,8 @@ export class PlaylistsView extends React.Component {
         return (
             <MusicItemCollectionView
                 items={this.state.items}
-                maxHeight={Dimensions.height - Dimensions.playbackControlHeight - 5} />
+                maxHeight={Dimensions.height - Dimensions.playbackControlHeight - 5}
+                width={Dimensions.width - Dimensions.sideBarWidth} />
         );
     }
 }

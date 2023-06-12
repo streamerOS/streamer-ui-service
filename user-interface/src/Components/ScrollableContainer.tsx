@@ -96,32 +96,30 @@ export class ScrollableContainer extends React.Component<ScrollableContainerProp
                 >
                     {this.props.children}
                 </Box >
-                {
-                    this.getMaxScrollPosition() > (this.props.maxHeight / 2)
-                        ? (<VStack>
-                            <IconButton
-                                icon={<GrLinkTop />}
-                                colorScheme='red'
-                                aria-label={'Scroll up'}
-                                onClick={() => this.scrollToTop()} />
-                            <IconButton
-                                icon={<BsCaretUpFill />}
-                                colorScheme='red'
-                                aria-label={'Scroll up'}
-                                onClick={() => this.scrollUp()} />
-                            <IconButton
-                                icon={<BsCaretDownFill />}
-                                colorScheme='red'
-                                aria-label={'Scroll down'}
-                                onClick={() => this.scrollDown()} />
-                            <IconButton
-                                icon={<GrLinkBottom />}
-                                colorScheme='red'
-                                aria-label={'Scroll up'}
-                                onClick={() => this.scrollToBottom()} />
-                        </VStack>)
-                        : (<></>)
-                }
+                {/*
+                <VStack>
+                    <IconButton
+                        icon={<GrLinkTop />}
+                        colorScheme='red'
+                        aria-label={'Scroll up'}
+                        onClick={() => this.scrollToTop()} />
+                    <IconButton
+                        icon={<BsCaretUpFill />}
+                        colorScheme='red'
+                        aria-label={'Scroll up'}
+                        onClick={() => this.scrollUp()} />
+                    <IconButton
+                        icon={<BsCaretDownFill />}
+                        colorScheme='red'
+                        aria-label={'Scroll down'}
+                        onClick={() => this.scrollDown()} />
+                    <IconButton
+                        icon={<GrLinkBottom />}
+                        colorScheme='red'
+                        aria-label={'Scroll up'}
+                        onClick={() => this.scrollToBottom()} />
+                </VStack>
+                */}
             </HStack>
         );
     }
