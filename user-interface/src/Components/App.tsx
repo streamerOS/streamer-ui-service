@@ -78,7 +78,7 @@ export class App extends React.Component {
     if (this.state.appState.valueOf() >= ApplicationState.MusicKitInitialized.valueOf()) {
       if (MusicKitTS.instance.isAuthorized && this.state.appState !== ApplicationState.MusicKitAuthorized) {
         this.setState({ appState: ApplicationState.MusicKitAuthorized });
-      } else if (!MusicKitTS.instance.isAuthorized) {
+      } else if (!MusicKitTS.instance.isAuthorized && this.state.appState !== ApplicationState.MusicKitLogin) {
         this.setState({ appState: ApplicationState.MusicKitLogin });
       }
     }
@@ -106,13 +106,31 @@ export class App extends React.Component {
     );
   }
 
+  authorizeAppleMusic = () => {
+    MusicKitTS.instance.authorize()
+      .then(() => this.setState({ appState: ApplicationState.MusicKitAuthorized }))
+      .catch((error) => {
+        // TODO Error Handling
+        console.log(error);
+      })
+  }
+
   loginView = () => {
     return (
       <ChakraProvider theme={theme}>
         <Box textAlign="center" fontSize="xl">
           <Grid minH="100vh" p={3}>
             <ColorModeSwitcher justifySelf="flex-end" />
-            <Text>Login to Apple Music</Text>
+            <VStack justify={'center'} align={'center'}>
+              <Text>Login to Apple Music</Text>
+              <Button
+                colorScheme='blue'
+                width='200px'
+                onClick={() => this.authorizeAppleMusic()}
+              >
+                Apple Music Login
+              </Button>
+            </VStack>
           </Grid>
         </Box>
       </ChakraProvider>
