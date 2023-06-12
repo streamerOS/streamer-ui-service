@@ -76,14 +76,14 @@ export class ArtistsContainerView extends React.Component {
     render(): React.ReactNode {
         return (
             <Flex>
-                <Box w={`${Dimensions.artistsListWidth}px`}>
+                <Box w={`${Dimensions.artistsListWidth}px`} p={2}>
                     <ArtistsList artistSelected={this.artistSelected} />
                 </Box>
-                <Box flex='1'>
+                <Box flex='1' p={2}>
                     <MusicItemCollectionView
                         items={this.state.selectedArtistItems}
                         maxHeight={Dimensions.height - Dimensions.playbackControlHeight - 5}
-                        width={Dimensions.width - Dimensions.sideBarWidth - Dimensions.artistsListWidth - 5} />
+                        width={Dimensions.width - Dimensions.sideBarWidth - Dimensions.artistsListWidth} />
                 </Box>
             </Flex>
         );
