@@ -16,7 +16,6 @@
 
 import { useState } from 'react';
 import {
-    Box,
     Button,
     HStack,
     IconButton,
@@ -74,7 +73,7 @@ export function MusicCollectionDetailModal({ onClose, isOpen, item }: MusicColle
                     <ModalBody>
                         <VStack justify={'center'} >
                             <HStack>
-                                <Image src={artworkUrl(item!, 240)} width={240} height={240} />
+                                <Image borderRadius='md' src={artworkUrl(item!, 240)} width={240} height={240} />
                                 <VStack align={'left'}>
                                     <Text noOfLines={3} color='white' fontSize='lg' as='b'>
                                         {item.name}

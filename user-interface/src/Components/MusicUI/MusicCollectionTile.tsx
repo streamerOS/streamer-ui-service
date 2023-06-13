@@ -25,7 +25,7 @@ interface MusicCollectionTileProps {
 export function MusicCollectionTile({ item, size }: MusicCollectionTileProps) {
     return (
         <VStack width={size + 4}>
-            <Image src={artworkUrl(item, size)} width={size} height={size} />
+            <Image borderRadius='md' src={artworkUrl(item, size)} width={size} height={size} />
             <Text noOfLines={1} color='white' as='b'>{item.name}</Text>
             {item.kind !== 'playlist'
                 ? (<Text noOfLines={1} color='gray.500'>{item.artistName}</Text>)

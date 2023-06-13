@@ -111,7 +111,8 @@ export class PlaybackControl extends React.Component {
     }
 
     setPlayPosition = async (position: number) => {
-        await MusicKitTS.instance.seekTo(position)
+        this.setState({ currentPosition: position });
+        await MusicKitTS.instance.seekTo(position);
     }
 
     render(): React.ReactNode {
@@ -169,7 +170,7 @@ export class PlaybackControl extends React.Component {
 
                     <Box bg='lightgrey' borderRadius="md">
                         <HStack justify={'center'} align={'center'} shouldWrapChildren={false}>
-                            <Image src={this.state.artworkUrl} width='80px' height='80px' />
+                            <Image borderRadius='md' src={this.state.artworkUrl} width='80px' height='80px' />
 
                             <VStack justify={'center'} align={'center'} shouldWrapChildren={false}>
                                 <Text>{this.state.artist}</Text>
