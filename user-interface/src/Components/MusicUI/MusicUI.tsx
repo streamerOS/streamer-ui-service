@@ -14,7 +14,16 @@
     limitations under the License.
 */
 
-import { ChakraProvider, Grid, GridItem, HStack, IconButton, Spacer, extendTheme } from '@chakra-ui/react';
+import {
+    Button,
+    ChakraProvider,
+    Grid,
+    GridItem,
+    HStack,
+    IconButton,
+    Spacer,
+    extendTheme
+} from '@chakra-ui/react';
 import * as React from 'react';
 
 import { AiOutlineReload } from '@react-icons/all-files/ai/AiOutlineReload';
@@ -23,6 +32,7 @@ import { Dimensions } from 'Components/Dimensions';
 import { DetailDispatcher } from 'Components/MusicUI/DetailDispatcher';
 import { MenuSideBar } from 'Components/MusicUI/MenuSideBar';
 import { PlaybackControl } from 'Components/MusicUI/PlaybackControl';
+import { MusicKitTS } from 'MusicKitTS/MusicKitTS';
 
 const theme = extendTheme({
     config: {
@@ -33,6 +43,11 @@ const theme = extendTheme({
 
 
 export class MusicUI extends React.Component {
+
+    appleMusicLogout = () => {
+        MusicKitTS.instance.logout()
+            .then(() => window.location.reload());
+    };
 
     render(): React.ReactNode {
         return (
@@ -54,6 +69,9 @@ export class MusicUI extends React.Component {
                             <Spacer />
                             <PlaybackControl />
                             <Spacer />
+                            <Button colorScheme='red' onClick={() => this.appleMusicLogout()}>
+                                Logout
+                            </Button>
                         </HStack>
                     </GridItem>
                     <GridItem pl='2' area={'nav'}>

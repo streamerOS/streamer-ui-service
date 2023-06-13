@@ -100,6 +100,10 @@ export class MusicKitTS {
         return this._mk.authorize();
     }
 
+    public async logout() {
+        return this._mk.unauthorize();
+    }
+
     /// Play, pause, stop
 
     public play(item: PlayParams, shuffleMode: number = window.MusicKit.PlayerShuffleMode.off) {
