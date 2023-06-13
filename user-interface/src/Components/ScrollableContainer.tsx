@@ -14,13 +14,8 @@
     limitations under the License.
 */
 
+import { Box, HStack } from '@chakra-ui/react';
 import React, { RefObject } from 'react';
-import { Box, HStack, IconButton, VStack } from '@chakra-ui/react';
-import { BsCaretDownFill } from '@react-icons/all-files/bs/BsCaretDownFill';
-import { BsCaretUpFill } from '@react-icons/all-files/bs/BsCaretUpFill';
-import { GrLinkBottom } from '@react-icons/all-files/gr/GrLinkBottom';
-import { GrLinkTop } from '@react-icons/all-files/gr/GrLinkTop';
-//GrLinkBottom
 
 
 interface ScrollableContainerProps {
@@ -96,30 +91,6 @@ export class ScrollableContainer extends React.Component<ScrollableContainerProp
                 >
                     {this.props.children}
                 </Box >
-                {/*
-                <VStack>
-                    <IconButton
-                        icon={<GrLinkTop />}
-                        colorScheme='red'
-                        aria-label={'Scroll up'}
-                        onClick={() => this.scrollToTop()} />
-                    <IconButton
-                        icon={<BsCaretUpFill />}
-                        colorScheme='red'
-                        aria-label={'Scroll up'}
-                        onClick={() => this.scrollUp()} />
-                    <IconButton
-                        icon={<BsCaretDownFill />}
-                        colorScheme='red'
-                        aria-label={'Scroll down'}
-                        onClick={() => this.scrollDown()} />
-                    <IconButton
-                        icon={<GrLinkBottom />}
-                        colorScheme='red'
-                        aria-label={'Scroll up'}
-                        onClick={() => this.scrollToBottom()} />
-                </VStack>
-                */}
             </HStack>
         );
     }

@@ -15,7 +15,7 @@
 */
 
 import { configureStore } from '@reduxjs/toolkit';
-import MenuSliceReducer from '../Components/MusicUI/MenuSlice';
+import MenuSliceReducer from 'Components/MusicUI/MenuSlice';
 
 export default configureStore({
   reducer: {

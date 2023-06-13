@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-import { convert } from "./MusicItem";
+import { convert } from 'MusicKitTS/MusicItem';
 
 export class MTSHistory {
 

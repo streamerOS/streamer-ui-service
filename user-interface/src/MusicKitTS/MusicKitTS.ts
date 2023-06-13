@@ -14,9 +14,9 @@
     limitations under the License.
 */
 
-import { MTSHistory } from './MTSHistory';
-import { MTSLibrary } from './MTSLibrary';
-import { Artist, PlayParams, artworkUrl } from './MusicItem';
+import { MTSHistory } from 'MusicKitTS/MTSHistory';
+import { MTSLibrary } from 'MusicKitTS/MTSLibrary';
+import { PlayParams } from 'MusicKitTS/MusicItem';
 
 declare global {
     interface Window { MusicKit: any; }

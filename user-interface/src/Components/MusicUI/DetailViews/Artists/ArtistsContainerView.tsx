@@ -14,13 +14,14 @@
     limitations under the License.
 */
 
+import { Box, Flex } from '@chakra-ui/react';
 import React from 'react';
-import { Box, Flex, Text } from '@chakra-ui/react';
-import { ArtistsList } from './ArtistsList';
-import { Dimensions } from '../../../Dimensions';
-import { Artist, MusicItem } from '../../../../MusicKitTS/MusicItem';
-import { MusicKitTS } from '../../../../MusicKitTS/MusicKitTS';
-import { MusicItemCollectionView } from '../MusicItemCollectionView';
+
+import { Dimensions } from 'Components/Dimensions';
+import { ArtistsList } from 'Components/MusicUI/DetailViews/Artists/ArtistsList';
+import { MusicItemCollectionView } from 'Components/MusicUI/DetailViews/MusicItemCollectionView';
+import { Artist, MusicItem } from 'MusicKitTS/MusicItem';
+import { MusicKitTS } from 'MusicKitTS/MusicKitTS';
 
 type ArtistsContainerViewState = {
     selectedArtist: Artist | null;

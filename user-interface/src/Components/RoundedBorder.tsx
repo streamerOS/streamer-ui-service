@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-import { Box } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { Box } from '@chakra-ui/react';
+import { ReactNode } from 'react';
 
 interface RoundedBorderProps {
     padding: number;

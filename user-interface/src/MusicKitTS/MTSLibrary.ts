@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-import { Artist, MusicItem, convert, toArtist, toSong } from "./MusicItem";
+import { Artist, MusicItem, convert, toArtist, toSong } from 'MusicKitTS/MusicItem';
 
 export class MTSLibrary {
 

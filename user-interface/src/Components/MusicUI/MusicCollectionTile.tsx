@@ -14,8 +14,9 @@
     limitations under the License.
 */
 
-import { Image, Text, VStack } from "@chakra-ui/react";
-import { MusicItem, artworkUrl } from "../../MusicKitTS/MusicItem";
+import { Image, Text, VStack } from '@chakra-ui/react';
+
+import { MusicItem, artworkUrl } from "MusicKitTS/MusicItem";
 
 interface MusicCollectionTileProps {
     item: MusicItem;
@@ -24,11 +25,11 @@ interface MusicCollectionTileProps {
 
 export function MusicCollectionTile({ item, size }: MusicCollectionTileProps) {
     return (
-        <VStack width={size + 4}>
+        <VStack width={size + 4} justify={'left'} align='left'>
             <Image borderRadius='md' src={artworkUrl(item, size)} width={size} height={size} />
-            <Text noOfLines={1} color='white' as='b'>{item.name}</Text>
+            <Text noOfLines={2} color='white' as='b'>{item.name}</Text>
             {item.kind !== 'playlist'
-                ? (<Text noOfLines={1} color='gray.500'>{item.artistName}</Text>)
+                ? (<Text noOfLines={2} color='gray.500'>{item.artistName}</Text>)
                 : (<div />)}
         </VStack>
     );

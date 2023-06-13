@@ -14,19 +14,20 @@
     limitations under the License.
 */
 
-import * as React from 'react';
 import {
-  ChakraProvider,
   Box,
+  Button,
+  ChakraProvider,
   Grid,
   Text,
-  extendTheme,
-  Button,
-  VStack
+  VStack,
+  extendTheme
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { MusicKitTS } from '../MusicKitTS/MusicKitTS';
-import { MusicUI } from './MusicUI/MusicUI';
+import * as React from 'react';
+
+import { ColorModeSwitcher } from 'Components/ColorModeSwitcher';
+import { MusicUI } from 'Components/MusicUI/MusicUI';
+import { MusicKitTS } from 'MusicKitTS/MusicKitTS';
 
 enum ApplicationState {
   None = 1,

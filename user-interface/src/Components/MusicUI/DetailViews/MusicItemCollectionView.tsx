@@ -14,14 +14,14 @@
     limitations under the License.
 */
 
-import React from 'react';
-import { MusicItem } from '../../../MusicKitTS/MusicItem';
-import { Dimensions } from '../../Dimensions';
-import { Resizeable } from '../../Resizeable';
-import { ScrollableContainer } from '../../ScrollableContainer';
 import { Grid, GridItem } from '@chakra-ui/react';
-import { MusicCollectionTile } from '../MusicCollectionTile';
-import { MusicCollectionDetailModal } from './MusicCollectionDetailModal';
+import React from 'react';
+
+import { MusicCollectionDetailModal } from 'Components/MusicUI/DetailViews/MusicCollectionDetailModal';
+import { MusicCollectionTile } from 'Components/MusicUI/MusicCollectionTile';
+import { Resizeable } from 'Components/Resizeable';
+import { ScrollableContainer } from 'Components/ScrollableContainer';
+import { MusicItem } from 'MusicKitTS/MusicItem';
 
 interface MusicItemCollectionViewProps {
     items: (MusicItem)[];

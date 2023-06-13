@@ -14,12 +14,13 @@
     limitations under the License.
 */
 
-import React from 'react';
-import { Artist } from '../../../../MusicKitTS/MusicItem';
-import { MusicKitTS } from '../../../../MusicKitTS/MusicKitTS';
 import { List, ListItem, Text } from '@chakra-ui/react';
-import { ScrollableContainer } from '../../../ScrollableContainer';
-import { Dimensions } from '../../../Dimensions';
+import React from 'react';
+
+import { Dimensions } from 'Components/Dimensions';
+import { ScrollableContainer } from 'Components/ScrollableContainer';
+import { Artist } from 'MusicKitTS/MusicItem';
+import { MusicKitTS } from 'MusicKitTS/MusicKitTS';
 
 interface ArtistsListProps {
     artistSelected: (artist: Artist) => void;

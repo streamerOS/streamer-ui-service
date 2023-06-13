@@ -10,3 +10,7 @@
 --touch-events=enabled
 -autoplay-policy=no-user-gesture-required
 ```
+
+## Using Touch Screens
+
+- [Fixing Chromium/Chrome Ignoring Touch Input on Linux](https://yuenhoe.com/blog/2015/06/fixing-chromiumchrome-ignoring-touch-input-on-linux/)

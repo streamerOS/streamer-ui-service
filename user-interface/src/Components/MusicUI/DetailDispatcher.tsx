@@ -16,11 +16,12 @@
 
 import { Text } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
-import { MenuItem } from './MenuSlice';
-import { RecentlyAddedView } from './DetailViews/RecentlyAddedView';
-import { PlaylistsView } from './DetailViews/PlaylistsView';
-import { ArtistsContainerView } from './DetailViews/Artists/ArtistsContainerView';
-import { RecentlyPlayedView } from './DetailViews/RecentlyPlayedView';
+
+import { ArtistsContainerView } from 'Components/MusicUI/DetailViews/Artists/ArtistsContainerView';
+import { PlaylistsView } from 'Components/MusicUI/DetailViews/PlaylistsView';
+import { RecentlyAddedView } from 'Components/MusicUI/DetailViews/RecentlyAddedView';
+import { RecentlyPlayedView } from 'Components/MusicUI/DetailViews/RecentlyPlayedView';
+import { MenuItem } from 'Components/MusicUI/MenuSlice';
 
 
 export function DetailDispatcher() {

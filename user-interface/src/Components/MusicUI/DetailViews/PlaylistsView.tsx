@@ -14,11 +14,12 @@
     limitations under the License.
 */
 
+import { Playlist } from 'MusicKitTS/MusicItem';
 import * as React from 'react';
-import { Playlist } from '../../../MusicKitTS/MusicItem';
-import { MusicKitTS } from '../../../MusicKitTS/MusicKitTS';
-import { Dimensions } from '../../Dimensions';
-import { MusicItemCollectionView } from './MusicItemCollectionView';
+
+import { Dimensions } from 'Components/Dimensions';
+import { MusicItemCollectionView } from 'Components/MusicUI/DetailViews/MusicItemCollectionView';
+import { MusicKitTS } from 'MusicKitTS/MusicKitTS';
 
 type PlaylistsViewState = {
     items: (Playlist)[];

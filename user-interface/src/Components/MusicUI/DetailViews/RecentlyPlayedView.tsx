@@ -15,10 +15,11 @@
 */
 
 import React from 'react';
-import { Album, Playlist } from '../../../MusicKitTS/MusicItem';
-import { MusicKitTS } from '../../../MusicKitTS/MusicKitTS';
-import { MusicItemCollectionView } from './MusicItemCollectionView';
-import { Dimensions } from '../../Dimensions';
+
+import { Dimensions } from 'Components/Dimensions';
+import { MusicItemCollectionView } from 'Components/MusicUI/DetailViews/MusicItemCollectionView';
+import { Album, Playlist } from 'MusicKitTS/MusicItem';
+import { MusicKitTS } from 'MusicKitTS/MusicKitTS';
 
 type RecentlyPlayedViewState = {
     items: (Playlist | Album)[];

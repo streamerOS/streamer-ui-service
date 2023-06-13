@@ -14,13 +14,15 @@
     limitations under the License.
 */
 
-import * as React from 'react';
 import { ChakraProvider, Grid, GridItem, HStack, IconButton, Spacer, extendTheme } from '@chakra-ui/react';
+import * as React from 'react';
+
 import { AiOutlineReload } from '@react-icons/all-files/ai/AiOutlineReload';
-import { PlaybackControl } from './PlaybackControl';
-import { MenuSideBar } from './MenuSideBar';
-import { DetailDispatcher } from './DetailDispatcher';
-import { Dimensions } from '../Dimensions';
+
+import { Dimensions } from 'Components/Dimensions';
+import { DetailDispatcher } from 'Components/MusicUI/DetailDispatcher';
+import { MenuSideBar } from 'Components/MusicUI/MenuSideBar';
+import { PlaybackControl } from 'Components/MusicUI/PlaybackControl';
 
 const theme = extendTheme({
     config: {

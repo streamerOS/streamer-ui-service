@@ -14,7 +14,6 @@
     limitations under the License.
 */
 
-import { useState } from 'react';
 import {
     Button,
     HStack,
@@ -32,12 +31,19 @@ import {
     Tr,
     VStack
 } from '@chakra-ui/react';
-import { MusicItem, Song, artworkUrl, formatMillisecondsToMinutesAndSeconds } from '../../../MusicKitTS/MusicItem';
 import { AiFillPlayCircle } from '@react-icons/all-files/ai/AiFillPlayCircle';
 import { BiShuffle } from '@react-icons/all-files/bi/BiShuffle';
-import { useEffect } from 'react';
-import { MusicKitTS } from '../../../MusicKitTS/MusicKitTS';
-import { ScrollableContainer } from '../../ScrollableContainer';
+import { ScrollableContainer } from 'Components/ScrollableContainer';
+import { useEffect, useState } from 'react';
+
+import {
+    MusicItem,
+    Song,
+    artworkUrl,
+    formatMillisecondsToMinutesAndSeconds
+} from 'MusicKitTS/MusicItem';
+import { MusicKitTS } from 'MusicKitTS/MusicKitTS';
+
 
 const cellStyle: React.CSSProperties = {
     whiteSpace: "pre-wrap",

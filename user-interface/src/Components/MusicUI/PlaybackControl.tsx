@@ -14,18 +14,19 @@
     limitations under the License.
 */
 
-import * as React from 'react';
 import { Box, HStack, IconButton, Image, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Text, VStack } from '@chakra-ui/react';
+import * as React from 'react';
 
 import { AiFillBackward } from '@react-icons/all-files/ai/AiFillBackward';
+import { AiFillForward } from '@react-icons/all-files/ai/AiFillForward';
 import { AiFillPauseCircle } from '@react-icons/all-files/ai/AiFillPauseCircle';
 import { AiFillPlayCircle } from '@react-icons/all-files/ai/AiFillPlayCircle';
-import { AiFillForward } from '@react-icons/all-files/ai/AiFillForward';
 import { BiShuffle } from '@react-icons/all-files/bi/BiShuffle';
 import { BsVolumeDown } from '@react-icons/all-files/bs/BsVolumeDown';
 import { BsVolumeUp } from '@react-icons/all-files/bs/BsVolumeUp';
 import { IoMdRepeat } from '@react-icons/all-files/io/IoMdRepeat';
-import { MusicKitTS } from '../../MusicKitTS/MusicKitTS';
+
+import { MusicKitTS } from 'MusicKitTS/MusicKitTS';
 
 type PlaybackControlState = {
     artist: string;

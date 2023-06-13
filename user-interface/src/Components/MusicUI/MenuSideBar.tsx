@@ -14,19 +14,15 @@
     limitations under the License.
 */
 
-import { useSelector, useDispatch } from 'react-redux';
 import { List, ListIcon, ListItem } from '@chakra-ui/react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { MenuItem, selectItem } from './MenuSlice';
-
-import { BsMusicNote } from '@react-icons/all-files/bs/BsMusicNote';
 import { FaRegClock } from '@react-icons/all-files/fa/FaRegClock';
-import { FaUsers } from '@react-icons/all-files/fa/FaUsers';
 import { GiMicrophone } from '@react-icons/all-files/gi/GiMicrophone';
-import { IoIosAlbums } from '@react-icons/all-files/io/IoIosAlbums';
 import { MdRecentActors } from '@react-icons/all-files/md/MdRecentActors';
 import { RiPlayListFill } from '@react-icons/all-files/ri/RiPlayListFill';
-import { RoundedBorder } from '../RoundedBorder';
+
+import { MenuItem, selectItem } from 'Components/MusicUI/MenuSlice';
 
 export function MenuSideBar() {
     var dispatch = useDispatch();
@@ -67,26 +63,6 @@ export function MenuSideBar() {
                 <ListIcon as={GiMicrophone} color='red.500' />
                 Arists
             </ListItem>
-            {/*
-            <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Albums))}>
-                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Albums}>
-                    <ListIcon as={IoIosAlbums} color='red.500' />
-                    Albums
-                </RoundedBorder>
-            </ListItem>
-            <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Songs))}>
-                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Songs}>
-                    <ListIcon as={BsMusicNote} color='red.500' />
-                    Songs
-                </RoundedBorder>
-            </ListItem>
-            <ListItem color='white' onClick={() => dispatch(selectItem(MenuItem.Compilations))}>
-                <RoundedBorder padding={1} selected={selectedItem === MenuItem.Compilations}>
-                    <ListIcon as={FaUsers} color='red.500' />
-                    Compilations
-                </RoundedBorder>
-            </ListItem>
-            */}
             <ListItem
                 color='white'
                 bg={selectedItem === MenuItem.RecentlyPlayed ? 'red.900' : 'transparent'}
