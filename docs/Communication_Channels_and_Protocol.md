@@ -40,6 +40,10 @@ The channel `/ui/update/**` is a HTTP request connection from the user interface
 
 ```json
 {
+    name: string;
+    artistName: string;
+    durationInMillis: number;
+    artworkUrl: string;
     progress: number;
 }
 ```

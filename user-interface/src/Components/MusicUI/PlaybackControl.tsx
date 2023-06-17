@@ -104,6 +104,10 @@ export class PlaybackControl extends React.Component {
         this.postUpdate(
             '/ui/update/playback-progress-did-change',
             {
+                name: this.state.title,
+                artistName: this.state.artist,
+                durationInMillis: this.state.duration,
+                artworkUrl: this.state.artworkUrl,
                 progress: progress
             }
         );
