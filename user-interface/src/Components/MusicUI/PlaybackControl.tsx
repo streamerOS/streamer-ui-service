@@ -64,6 +64,19 @@ export class PlaybackControl extends React.Component {
 
     /// Handlers
 
+    postUpdate = (uri: string, body: any) => {
+        fetch(uri, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        })
+            .then(response => console.log(response))
+            .catch((error) => console.log(error))
+    };
+
     nowPlayingItemDidChange = (name: string, artistName: string, duration: number, artworkUrl: string) => {
         this.setState({
             artist: artistName,
@@ -71,30 +84,68 @@ export class PlaybackControl extends React.Component {
             duration: duration,
             artworkUrl: artworkUrl
         });
+
+        this.postUpdate(
+            '/ui/update/now-playing-item-did-change',
+            {
+                name: name,
+                artistName: artistName,
+                durationInMillis: duration,
+                artworkUrl: artworkUrl
+            }
+        );
     };
 
     playbackProgressDidChange = (progress: number) => {
         this.setState({
             currentPosition: Math.round(this.state.duration * progress)
         });
+
+        this.postUpdate(
+            '/ui/update/playback-progress-did-change',
+            {
+                progress: progress
+            }
+        );
     };
 
     shuffleModeDidChange = (shuffling: boolean) => {
         this.setState({
             shuffling: shuffling
         });
+
+        this.postUpdate(
+            '/ui/update/shuffle-mode-did-change',
+            {
+                shuffling: shuffling
+            }
+        );
     };
 
     repeatModeDidChange = (repeating: boolean) => {
         this.setState({
             repeating: repeating
         });
+
+        this.postUpdate(
+            '/ui/update/repeat-mode-did-change',
+            {
+                repeating: repeating
+            }
+        );
     };
 
     playbackStateDidChange = (playing: boolean) => {
         this.setState({
             playing: playing
         });
+
+        this.postUpdate(
+            '/ui/update/playback-state-did-change',
+            {
+                playing: playing
+            }
+        );
     };
 
     componentDidMount(): void {
